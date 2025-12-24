@@ -1,4 +1,4 @@
-# 📱 CommCare Data Processor : Nettoyage & Analyse Automatisée
+# 📱 CommCare Data Processor : Nettoyage, Analyse & Automatisée Cartographie & SIG
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Library-Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
@@ -38,7 +38,7 @@ Ce module transforme les données tabulaires en outils visuels pour la gestion t
 ### 📸 Aperçu du Résultat
 *(Carte générée automatiquement montrant la répartition des producteurs)*
 
-![Carte Interactive](map_preview.jpg)
+![Carte Interactive](map_preview.png)
 
 ### 💻 Extrait du Code
 ```python
