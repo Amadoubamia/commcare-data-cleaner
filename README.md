@@ -26,16 +26,6 @@ Ce script agit comme un tableau de bord automatique, répondant aux questions cl
 | **Inclusion** | 81.2% de Femmes |
 | **Best-Seller** | Paquet `dap_special_38000` |
 
-## 🚀 Comment l'utiliser
-```bash
-# 1. Installer les dépendances
-pip install pandas
-
-# 2. Lancer le nettoyage
-python clean_inscription.py
-
-# 3. Générer le rapport d'analyse
-python analyze_data.py
 
 ## 🗺️ Module 3 : Cartographie & SIG (`generate_map.py`)
 
@@ -61,3 +51,15 @@ folium.Marker(
     popup=f"{row['nom_et_prenom']} ({row['village']})",
     icon=folium.Icon(color='green', icon='user')
 ).add_to(m)
+## 🚀 Comment l'utiliser
+```bash
+# 1. Installer les dépendances
+pip install pandas
+
+# 2. Lancer le nettoyage
+python clean_inscription.py
+
+# 3. Générer le rapport d'analyse
+python analyze_data.py
+
+
