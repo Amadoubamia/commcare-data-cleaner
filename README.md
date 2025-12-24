@@ -36,3 +36,28 @@ python clean_inscription.py
 
 # 3. Générer le rapport d'analyse
 python analyze_data.py
+
+## 🗺️ Module 3 : Cartographie & SIG (`generate_map.py`)
+
+Ce module transforme les données tabulaires en outils visuels pour la gestion territoriale.
+
+### Fonctionnalités :
+1.  **Carte Interactive Web :** Génération d'une carte HTML autonome avec `Folium` (librairie basée sur Leaflet.js). Permet de cliquer sur chaque producteur pour voir ses détails (Nom, Village, Paquet).
+2.  **Export QGIS :** Création automatique d'un fichier `GeoJSON` standard pour l'intégration dans les Systèmes d'Information Géographique.
+
+### 📸 Aperçu du Résultat
+*(Carte générée automatiquement montrant la répartition des producteurs)*
+
+![Carte Interactive](map_preview.png)
+
+### 💻 Extrait du Code
+```python
+# Création de la carte centrée sur la moyenne des points GPS
+m = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=10)
+
+# Ajout des marqueurs avec Popup
+folium.Marker(
+    location=[row['latitude'], row['longitude']],
+    popup=f"{row['nom_et_prenom']} ({row['village']})",
+    icon=folium.Icon(color='green', icon='user')
+).add_to(m)
