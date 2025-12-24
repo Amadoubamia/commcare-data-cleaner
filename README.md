@@ -1,36 +1,38 @@
-# 📱 CommCare Data Processor : Nettoyage Automatisé
+# 📱 CommCare Data Processor : Nettoyage & Analyse Automatisée
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
-![CommCare](https://img.shields.io/badge/Data_Source-CommCare-purple?style=for-the-badge)
 ![Pandas](https://img.shields.io/badge/Library-Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Business Intelligence](https://img.shields.io/badge/Analysis-Business_Intelligence-orange?style=for-the-badge)
 
 ## 📋 La Problématique
-Les exportations de données depuis la plateforme **CommCare** présentent souvent des défis structurels pour l'analyse directe :
-1.  **Noms de colonnes techniques :** Présence de préfixes système (ex: `form ...`, `case ...`).
-2.  **Typage mixte :** Les champs numériques (prix, quantités) sont souvent exportés comme du texte.
-3.  **Formatage :** Espaces multiples et caractères spéciaux dans les en-têtes.
+Les données brutes exportées de CommCare nécessitent un traitement rigoureux avant de pouvoir servir à la prise de décision stratégique (erreurs de format, types de données incorrects, etc.).
 
-## 🛠️ La Solution (`clean_inscription.py`)
+Ce projet propose une solution complète en deux étapes : **Nettoyage ETL** + **Analyse Business**.
 
-Ce script Python ingère le fichier brut et produit un dataset "Business Ready".
+## 🛠️ Module 1 : Nettoyage (`clean_inscription.py`)
+Ce script transforme les données brutes en un dataset fiable :
+* **Standardisation :** Conversion des en-têtes en `snake_case`.
+* **Typage :** Conversion des prix (texte) en entiers pour les calculs.
+* **Qualité :** Validation des coordonnées GPS et des dates.
 
-### Transformations appliquées :
-* **Standardisation des En-têtes :**
-  * Suppression automatique des espaces doubles.
-  * Conversion en `snake_case` (minuscules + underscores) pour compatibilité SQL.
-  * *Exemple :* `"Montant restant  inscription"` ➡️ `montant_restant_inscription`.
+## 📊 Module 2 : Analyse Business (`analyze_data.py`)
+Ce script agit comme un tableau de bord automatique, répondant aux questions clés :
 
-* **Correction des Types (Type Casting) :**
-  * Détection et conversion des colonnes Prix/Montants en entiers (`Int`).
-  * Gestion des valeurs manquantes (`NaN` -> `0`).
+| Indicateur (KPI) | Résultat Automatisé (Exemple) |
+| :--- | :--- |
+| **Total Inscrits** | 261 Producteurs |
+| **Volume Financier** | 522 000 FCFA |
+| **Top Zone** | TOUKOTO |
+| **Inclusion** | 81.2% de Femmes |
+| **Best-Seller** | Paquet `dap_special_38000` |
 
-* **Validation GPS :**
-  * Vérification de l'intégrité des colonnes Latitude/Longitude pour l'import SIG.
-
-* **Enrichissement (Feature Engineering) :**
-  * Calcul automatique du `% Payé` basé sur le prix du paquet et le montant versé.
-
-## 🚀 Utilisation
+## 🚀 Comment l'utiliser
 ```bash
+# 1. Installer les dépendances
 pip install pandas
+
+# 2. Lancer le nettoyage
 python clean_inscription.py
+
+# 3. Générer le rapport d'analyse
+python analyze_data.py
