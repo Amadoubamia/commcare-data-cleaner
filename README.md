@@ -38,7 +38,7 @@ Ce module transforme les données tabulaires en outils visuels pour la gestion t
 ### 📸 Aperçu du Résultat
 *(Carte générée automatiquement montrant la répartition des producteurs)*
 
-![Carte Interactive](map_preview.png)
+![Carte Interactive](map_preview.jpg)
 
 ### 💻 Extrait du Code
 ```python
