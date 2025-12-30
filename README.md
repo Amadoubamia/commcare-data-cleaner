@@ -1,4 +1,4 @@
-# 📱 CommCare Data Processor : Nettoyage, Analyse & Automatisée Cartographie & SIG
+# 📱 CommCare Data Processor : Nettoyage, Analyse Automatisée & Cartographie SIG
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Library-Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
